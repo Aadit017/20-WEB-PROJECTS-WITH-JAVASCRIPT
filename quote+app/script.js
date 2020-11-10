@@ -18,7 +18,7 @@ function complete(){
         quoteContainer.hidden = false;
     }
 }
-
+//FUNCTION TO FETCH DATA AND MANIPULATE DOM
 async function getQuote() {
     loading();
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
@@ -45,7 +45,6 @@ async function getQuote() {
         console.log('Error getting quotes', error);
     }
 };
-//LOADING FUNCTION
 
 //FUNCTION TO TWEET QUOTE 
 function tweetQuote() {
