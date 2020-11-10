@@ -1,16 +1,14 @@
-@mixin responsive {
-  @media only screen and (max-width: 1000px) {
-    @content;
-  }
-}
-
 html {
   box-sizing: border-box;
   font-size: 62.5%;
-  @include responsive {
+}
+
+@media only screen and (max-width: 1000px) {
+  html {
     font-size: 55%;
   }
 }
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -24,6 +22,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .quote-container {
   width: auto;
   max-width: 900px;
@@ -32,70 +31,84 @@ body {
   background-color: rgba(255, 255, 255, 0.4);
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.6);
   margin: auto;
-  @include responsive {
+}
+
+@media only screen and (max-width: 1000px) {
+  .quote-container {
     margin: auto 1rem;
   }
-  .quote-text {
-    font-size: 2.5rem;
-    i {
-      font-size: 4rem;
-      @include responsive {
-        font-size: 3rem;
-      }
-    }
-  }
-  .long-quote {
-    font-size: 2rem;
-  }
-  .quote-author {
-    font-size: 1.8rem;
-    margin: 1rem 0;
-    font-style: italic;
-  }
-  .button-container {
-    display: flex;
-    justify-content: space-between;
-
-    .twitter:hover {
-      color: #1da1f2;
-    }
-
-    button {
-      cursor: pointer;
-      outline: none;
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 2rem;
-      border-radius: 7px;
-      height: 5rem;
-      color: #fff;
-      background-color: #333;
-      box-shadow: 0 0.3rem rgba(121, 121, 121, 0.65);
-      &:active {
-        transform: translateY(0.5rem);
-        box-shadow: 0 0.1rem rgba(255, 255, 255, 0.65);
-      }
-      &:hover {
-        filter: brightness(120%);
-      }
-    }
-  }
-}
-.loader{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 16px solid #fff;
-    border-top: 16px solid #1a1c20;
-    animation: loading 1s linear infinite;
-
 }
 
-@keyframes loading{
-    0%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
+.quote-container .quote-text {
+  font-size: 2.5rem;
 }
+
+.quote-container .quote-text i {
+  font-size: 4rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  .quote-container .quote-text i {
+    font-size: 3rem;
+  }
+}
+
+.quote-container .long-quote {
+  font-size: 2rem;
+}
+
+.quote-container .quote-author {
+  font-size: 1.8rem;
+  margin: 1rem 0;
+  font-style: italic;
+}
+
+.quote-container .button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.quote-container .button-container .twitter:hover {
+  color: #1da1f2;
+}
+
+.quote-container .button-container button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  border-radius: 7px;
+  height: 5rem;
+  color: #fff;
+  background-color: #333;
+  box-shadow: 0 0.3rem rgba(121, 121, 121, 0.65);
+}
+
+.quote-container .button-container button:active {
+  transform: translateY(0.5rem);
+  box-shadow: 0 0.1rem rgba(255, 255, 255, 0.65);
+}
+
+.quote-container .button-container button:hover {
+  filter: brightness(120%);
+}
+
+.loader {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 16px solid #fff;
+  border-top: 16px solid #1a1c20;
+  animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=style.css.map */
