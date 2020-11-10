@@ -21,24 +21,26 @@ function complete(){
 //FUNCTION TO FETCH DATA AND MANIPULATE DOM
 async function getQuote() {
     loading();
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-    const apiUrl = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
+    const apiUrl = 'https://type.fit/api/quotes';
     try {
-        const response = await fetch(proxyUrl + apiUrl);
+        const response = await fetch(apiUrl);
         const data = await response.json();
-        if (data.quoteAuthor === '') {
+        const randomNumber = Math.floor(Math.random() * data.length);
+        const randomQuote = data[randomNumber];
+        const {text,author} = randomQuote;
+        if (author === '') {
             quoteAuthor.innerText = 'Unknown';
         }
         else {
-            quoteAuthor.innerText = data.quoteAuthor;
+            quoteAuthor.innerText = author;
         }
-        if (data.quoteText.length > 120) {
+        if (text.length > 120) {
             quoteText.classList.add('long-quote');
         }
         else {
             quoteText.classList.remove('long-quote');
         }
-        quoteText.innerText = data.quoteText;
+        quoteText.innerText = text;
         complete();
     } catch (error) {
         getQuote();
