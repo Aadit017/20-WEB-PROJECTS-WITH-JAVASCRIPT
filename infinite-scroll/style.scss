@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+}
+h1 {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 2.5rem;
+  letter-spacing: 5px;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.6);
+
+  @media only screen and (max-width: 768px) {
+    font-size: 1.4rem;
+  }
+}
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.94);
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+  }
+}
+.image-container {
+  margin: 1rem 30%;
+
+  @media only screen and (max-width: 768px) {
+    margin: 1rem;
+  }
+
+  img {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
